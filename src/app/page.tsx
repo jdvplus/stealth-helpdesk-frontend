@@ -1,3 +1,5 @@
-export default function Home() {
-  return <h1 className='text-3xl font-bold'>hello world!</h1>;
-}
+const Home = () => {
+  return <h1 className='text-3xl font-bold text-black'>hehehe</h1>;
+};
+
+export default Home;
