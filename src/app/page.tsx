@@ -1,5 +1,11 @@
+import TicketSubmissionForm from '@/components/TicketSubmissionForm';
+
 const Home = () => {
-  return <h1 className='text-3xl font-bold text-black'>hehehe</h1>;
+  return (
+    <div className='w-2/3 mx-auto'>
+      <TicketSubmissionForm />
+    </div>
+  );
 };
 
 export default Home;
