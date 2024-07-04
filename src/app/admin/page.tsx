@@ -1,3 +1,9 @@
+/*
+In a production-level application, this admin panel would of course be restricted with secure authentication measures, as the information is sensitive and should only visible to employees/team members/etc.
+
+(We could use https://next-auth.js.org/getting-started/example, for example.)
+*/
+
 import { columns } from '@/components/admin-panel-table/columns';
 import { DataTable } from '@/components/admin-panel-table/data-table';
 
