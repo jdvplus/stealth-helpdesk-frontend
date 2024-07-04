@@ -20,8 +20,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
 // TODO: figure this out
-const apiUrl =
-  process.env.API_URL || 'https://zealthy-helpdesk-backend-jdv724.vercel.app';
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const formSchema = z.object({
   name: z
@@ -51,14 +50,18 @@ export default function TicketSubmissionForm() {
   ): Promise<void> => {
     const { name, email, description } = values;
 
-    const res = await fetch(`${apiUrl}/tickets`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, description }),
-    });
-    const data = (await res.json()) as string;
+    try {
+      const res = await fetch(`${apiUrl}/tickets`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, description }),
+      });
+      const data = (await res.json()) as string;
 
-    setSuccessMessage(data);
+      setSuccessMessage(data);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
