@@ -1,4 +1,4 @@
-import TicketSubmissionForm from '@/components/TicketSubmissionForm';
+import TicketSubmissionForm from '@/components/ticket-submission-form';
 
 const Home = () => {
   return (
