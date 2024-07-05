@@ -16,6 +16,10 @@ All files in `./src/components/ui` were imported into the project via shadcn's C
 
 The data-fetching frontend modules make HTTP requests to a Node.js/Express app separately deployed via Vercel.
 
+## Tech Stack
+
+TypeScript + ESLint, Next.js, React, Tailwind, Zod + React Hook Form, `shadcn/ui`
+
 ## Getting Started
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
