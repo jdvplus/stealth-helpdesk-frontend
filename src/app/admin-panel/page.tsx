@@ -16,7 +16,7 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const getData = async (): Promise<Ticket[]> => {
   const res = await fetch(`${apiUrl}/tickets`);
   const data = await res.json();
-  console.log('data', data);
+  console.log('data in admin panel', data);
 
   return data;
 };
