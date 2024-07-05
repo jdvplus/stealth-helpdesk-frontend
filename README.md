@@ -22,7 +22,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 **NOTE**: For the backend API calls to work properly within a local environment, you will need to add an `.env` file to the root folder of this project on your local machine. A key `NEXT_PUBLIC_API_URL` should be added to this file, whose value will be a URL string of the backend deployment hosted on Vercel. This environment variable has intentionally been hidden for safety & security.
 
-Once set up, run the development server:
+First, install dependencies:
+
+```bash
+npm i
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -34,6 +40,6 @@ pnpm dev
 bun dev
 ```
 
-Now open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Finally, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 (This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.)
