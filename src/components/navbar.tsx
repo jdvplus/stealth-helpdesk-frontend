@@ -13,7 +13,7 @@ export default function Navbar() {
       <nav className='w-1/2 pt-2'>
         <ul className='flex flex-row justify-end'>
           <li className='mr-4 hover:text-slate-400'>
-            <Link href='/'>Submit a Ticket</Link>
+            <Link href='/submit-a-request'>Submit a Help Desk Request</Link>
           </li>
           <li className='mr-4 hover:text-slate-400'>
             <Link href='/admin-panel'>Admin Panel</Link>

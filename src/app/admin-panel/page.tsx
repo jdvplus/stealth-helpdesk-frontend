@@ -41,7 +41,7 @@ export default function AdminPanel() {
       </Button>
       {/* ^^ I really dislike this workaround for re-fetching data and re-rendering the table, but I unfortunately couldn't quite get server-side cache revalidation and page re-rendering with Next.js working properly given the assessment time constraints and the existing infrastructure of the codebase.
 
-      The actions of saving a draft and resolving a ticket occur from buttons within nested shadcn `Dialog` and `Dropdown Menu` components, which presented some complexity in terms of figuring out how to prop drill / manage state / etc. 
+      The actions of saving a draft and resolving a ticket occur from buttons within nested shadcn `Dialog` and `Dropdown Menu` components, which presented some complexity in terms of figuring out how to prop drill / manage state / etc. in order to have those actions ultimately trigger a re-fetch and re-rendering of the table in this component.
       
       This is certainly one of the downsides of relying on an external component library so heavily. */}
 

@@ -1,9 +1,4 @@
-import TicketSubmissionForm from '@/components/ticket-submission-form';
-
+// TODO: add home page
 export default function Home() {
-  return (
-    <div className='w-2/3 mx-auto'>
-      <TicketSubmissionForm />
-    </div>
-  );
+  return <div className='text-4xl'>hello world</div>;
 }
