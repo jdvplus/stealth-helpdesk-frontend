@@ -35,8 +35,12 @@ export default function AdminPanel() {
   }, []);
 
   return (
-    <div className='w-[90%] mx-auto py-10 flex flex-col'>
-      <Button className='w-[10%] mx-auto mb-4' onClick={getData}>
+    <div className='w-[90%] mx-auto mt-12 flex flex-col'>
+      <h1 className='text-3xl font-bold text-center text-black mb-4'>
+        Admin Panel
+      </h1>
+
+      <Button className='w-[10%] mx-auto mb-8' onClick={getData}>
         refresh table
       </Button>
       {/* ^^ I really dislike this workaround for re-fetching data and re-rendering the table, but I unfortunately couldn't quite get server-side cache revalidation and page re-rendering with Next.js working properly given the assessment time constraints and the existing infrastructure of the codebase.
