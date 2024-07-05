@@ -135,7 +135,7 @@ export default function ActionsDropDownWithResponseModal({
           <div>
             <div className='mb-4'>Response sent!</div>
             <p className='text-xs'>
-              From: support@zealthy.com <br />
+              From: support@stealthstartup.com <br />
               To: {ticket.name} | {ticket.email} <br />
               <br />
               Message: <br />

@@ -7,7 +7,7 @@ import Navbar from '@/components/navbar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Zealthy - Help Desk',
+  title: 'Stealth Startup - Help Desk',
   description: 'A mock help desk & support ticket management system.',
 };
 

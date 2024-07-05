@@ -7,7 +7,7 @@ export default function Navbar() {
         href='/'
         className='w-1/2 ml-2 font-bold text-3xl hover:text-slate-400 transition ease-in-out'
       >
-        <span className=''>Zealthy Help Desk</span>
+        <span className=''>Stealth Help Desk</span>
       </Link>
 
       <nav className='w-1/2 pt-2'>
