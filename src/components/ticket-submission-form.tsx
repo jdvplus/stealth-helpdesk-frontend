@@ -1,12 +1,10 @@
 'use client';
 
-/* deps */
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 
-/* components */
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -19,9 +17,9 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
-// TODO: figure this out
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
+// use Zod for form validation
 const formSchema = z.object({
   name: z
     .string()
@@ -45,6 +43,10 @@ export default function TicketSubmissionForm() {
     },
   });
 
+  /**
+   * onSubmit: makes an HTTP 'POST' request to api to submit a ticket to the database.
+   * @param values - submitted form values
+   */
   const onSubmit = async (
     values: z.infer<typeof formSchema>
   ): Promise<void> => {
@@ -64,6 +66,7 @@ export default function TicketSubmissionForm() {
     }
   };
 
+  /* component display */
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>

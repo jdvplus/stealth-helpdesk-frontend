@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowUpDown } from 'lucide-react';
 import ActionsDropDownWithResponseModal from '@/components/actions-dropdown-w-response-modal';
 
-import { Ticket } from '@/lib/types';
+import { Ticket, DatabaseTicket } from '@/lib/types';
 
 export const columns: ColumnDef<Ticket>[] = [
   {
@@ -23,17 +23,16 @@ export const columns: ColumnDef<Ticket>[] = [
   },
   {
     accessorKey: 'status',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant='ghost'
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Status
-          <ArrowUpDown className='ml-2 h-4 w-4' />
-        </Button>
-      );
-    },
+    // feature: enable sorting by status
+    header: ({ column }) => (
+      <Button
+        variant='ghost'
+        onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+      >
+        Status
+        <ArrowUpDown className='ml-2 h-4 w-4' />
+      </Button>
+    ),
   },
   {
     accessorKey: 'supportTeamResponse',
@@ -42,11 +41,9 @@ export const columns: ColumnDef<Ticket>[] = [
   {
     id: 'actions',
     cell: ({ row }) => {
-      const ticket = row.original as unknown as {
-        _id: string;
-        name: string;
-        email: string;
-      };
+      // obtain ticket information
+      // (needed to do type coercion here; TS was being a little tricky)
+      const ticket = row.original as unknown as DatabaseTicket;
       return <ActionsDropDownWithResponseModal ticket={ticket} />;
     },
   },

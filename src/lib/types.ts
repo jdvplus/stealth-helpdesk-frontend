@@ -21,3 +21,9 @@ export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
+
+export type DatabaseTicket = {
+  _id: string;
+  name: string;
+  email: string;
+};

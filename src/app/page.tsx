@@ -1,11 +1,9 @@
 import TicketSubmissionForm from '@/components/ticket-submission-form';
 
-const Home = () => {
+export default function Home() {
   return (
     <div className='w-2/3 mx-auto'>
       <TicketSubmissionForm />
     </div>
   );
-};
-
-export default Home;
+}

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-
 import {
   SortingState,
   flexRender,
@@ -43,6 +42,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
+      {/* table section */}
       <div className='rounded-xl border shadow-md'>
         <Table>
           <TableHeader>
@@ -63,6 +63,7 @@ export function DataTable<TData, TValue>({
               </TableRow>
             ))}
           </TableHeader>
+
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
@@ -93,6 +94,8 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
+
+      {/* pagination controls */}
       <div className='flex items-center justify-end space-x-2 py-4'>
         <Button
           variant='outline'

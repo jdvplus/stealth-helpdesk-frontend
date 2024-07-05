@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const Navbar = () => {
+export default function Navbar() {
   return (
     <header className='sticky top-0 flex py-5 bg-slate-600 text-white'>
       <Link
@@ -22,6 +22,4 @@ const Navbar = () => {
       </nav>
     </header>
   );
-};
-
-export default Navbar;
+}

@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 
-import { MoreHorizontal } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -21,20 +19,28 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
+import { MoreHorizontal } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
+
+import { DatabaseTicket } from '@/lib/types';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export default function ActionsDropDownWithResponseModal({
   ticket,
 }: {
-  ticket: { _id: string; name: string; email: string };
+  ticket: DatabaseTicket;
 }) {
+  /* state variables */
   const [supportTeamResponse, setSupportTeamResponse] = useState<string>('');
   const [successMessage, setSuccessMessage] = useState<string>('');
   const [ticketResolved, setTicketResolved] = useState<boolean>(false);
   const [sampleEmail, setSampleEmail] = useState<string>('');
 
+  /**
+   * saveDraft: makes an HTTP 'PATCH' request to api to update a ticket.
+   */
   const saveDraft = async (): Promise<void> => {
     try {
       const res = await fetch(`${apiUrl}/saveDraft/${ticket._id}`, {
@@ -51,14 +57,16 @@ export default function ActionsDropDownWithResponseModal({
     }
   };
 
+  /**
+   * sendResponse: makes an HTTP 'PATCH' request to api to resolve a ticket.
+   */
   const sendResponse = async (): Promise<void> => {
     try {
-      const res = await fetch(`${apiUrl}/resolve/${ticket._id}`, {
+      await fetch(`${apiUrl}/resolve/${ticket._id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ supportTeamResponse }),
       });
-      const data = await res.json();
 
       setSampleEmail(supportTeamResponse);
       setSupportTeamResponse('');
@@ -68,6 +76,7 @@ export default function ActionsDropDownWithResponseModal({
     }
   };
 
+  /* component display */
   return (
     <Dialog>
       <DropdownMenu>
@@ -77,9 +86,11 @@ export default function ActionsDropDownWithResponseModal({
             <MoreHorizontal className='h-4 w-4' />
           </Button>
         </DropdownMenuTrigger>
+
         <DropdownMenuContent align='end'>
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
           <DropdownMenuSeparator />
+
           <DialogTrigger asChild>
             <DropdownMenuItem className='cursor-pointer'>
               Respond to user
@@ -87,21 +98,25 @@ export default function ActionsDropDownWithResponseModal({
           </DialogTrigger>
         </DropdownMenuContent>
       </DropdownMenu>
+
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Write a response</DialogTitle>
+
           <Textarea
             placeholder='Please include a response here.'
             rows={5}
             onChange={(e) => setSupportTeamResponse(e.target.value)}
             value={supportTeamResponse}
           />
+
           <DialogDescription className='italic'>
             You may save a draft of your reponse if you wish. <br />
             (This will automatically update the ticket's status to "in
             progress".)
           </DialogDescription>
         </DialogHeader>
+
         <DialogFooter>
           <Button type='submit' onClick={sendResponse}>
             Send response
@@ -110,6 +125,7 @@ export default function ActionsDropDownWithResponseModal({
             Save draft
           </Button>
         </DialogFooter>
+
         {ticketResolved && (
           <div>
             <div className='mb-4'>Response sent!</div>

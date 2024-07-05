@@ -6,8 +6,8 @@ In a production-level application, this admin panel would of course be restricte
 
 import { unstable_noStore as noStore } from 'next/cache';
 
-import { columns } from '@/components/admin-panel-table/columns';
 import { DataTable } from '@/components/admin-panel-table/data-table';
+import { columns } from '@/components/admin-panel-table/columns';
 
 import { Ticket } from '@/lib/types';
 
@@ -16,7 +16,6 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const getData = async (): Promise<Ticket[]> => {
   const res = await fetch(`${apiUrl}/tickets`);
   const data = await res.json();
-  console.log('data in admin panel', data);
 
   return data;
 };
