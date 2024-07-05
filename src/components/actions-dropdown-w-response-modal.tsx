@@ -106,7 +106,7 @@ export default function ActionsDropDownWithResponseModal({
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Write a response</DialogTitle>
+          <DialogTitle className='mb-2'>Write a response</DialogTitle>
 
           <Textarea
             placeholder='Please include a response here.'

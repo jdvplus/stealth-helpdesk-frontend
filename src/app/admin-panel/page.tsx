@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { DataTable } from '@/components/admin-panel-table/data-table';
 import { columns } from '@/components/admin-panel-table/columns';
+import { Skeleton } from '@/components/ui/skeleton';
 
 import { Ticket } from '@/lib/types';
 
@@ -49,7 +50,18 @@ export default function AdminPanel() {
       
       This is certainly one of the downsides of relying on an external component library so heavily. */}
 
-      {data ? <DataTable columns={columns} data={data as Ticket[]} /> : null}
+      {data ? (
+        <DataTable columns={columns} data={data as Ticket[]} />
+      ) : (
+        // render skeleton/loader if data is not available yet
+        <div className='flex flex-col mx-auto space-y-2'>
+          <Skeleton className='h-[20rem] w-[85rem] rounded-xl' />
+          <div className='space-y-2'>
+            <Skeleton className='h-[2rem] w-[85rem] rounded-xl' />
+            <Skeleton className='h-[2rem] w-[85rem] rounded-xl' />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

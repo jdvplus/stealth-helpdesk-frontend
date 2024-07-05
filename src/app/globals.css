@@ -75,3 +75,14 @@
     @apply p-0 m-0 h-full bg-gradient-to-b from-white to-[#e4f9ec] bg-fixed;
   }
 }
+
+@layer utilities {
+  /* remove scrollbar from DOM */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+  .no-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+}
