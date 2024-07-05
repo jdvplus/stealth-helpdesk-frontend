@@ -73,10 +73,11 @@ export default function TicketSubmissionForm() {
       setSubmitSuccess(true);
       setSuccessMessage(data);
 
+      // clear success message after 10 seconds
       setTimeout(() => {
         setSubmitSuccess(false);
         setSuccessMessage('');
-      }, 5000);
+      }, 10000);
     } catch (err) {
       console.error(err);
     }
