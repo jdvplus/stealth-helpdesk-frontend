@@ -34,7 +34,7 @@ export default function ActionsDropDownWithResponseModal({
 }) {
   /* state variables */
   const [supportTeamResponse, setSupportTeamResponse] = useState<string>('');
-  const [successMessage, setSuccessMessage] = useState<string>('');
+  const [draftSavedMessage, setDraftSavedMessage] = useState<string>('');
   const [ticketResolved, setTicketResolved] = useState<boolean>(false);
   const [sampleEmail, setSampleEmail] = useState<string>('');
 
@@ -50,8 +50,7 @@ export default function ActionsDropDownWithResponseModal({
       });
       const data = await res.json();
 
-      setSuccessMessage(data);
-      setTimeout(() => setSuccessMessage(''), 3000);
+      setDraftSavedMessage(data);
     } catch (err) {
       console.error(err);
     }
@@ -82,6 +81,7 @@ export default function ActionsDropDownWithResponseModal({
       onOpenChange={() => {
         setSampleEmail('');
         setTicketResolved(false);
+        setDraftSavedMessage('');
       }}
     >
       <DropdownMenu>
@@ -143,7 +143,7 @@ export default function ActionsDropDownWithResponseModal({
             </p>
           </div>
         )}
-        {successMessage && <div>{successMessage}</div>}
+        {draftSavedMessage && <div>{draftSavedMessage}</div>}
       </DialogContent>
     </Dialog>
   );

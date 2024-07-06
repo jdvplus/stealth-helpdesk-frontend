@@ -60,7 +60,11 @@ export default function TicketSubmissionForm() {
   const onSubmit = async (
     values: z.infer<typeof formSchema>
   ): Promise<void> => {
-    const { name, email, description } = values;
+    const {
+      name,
+      email,
+      description,
+    }: { name: string; email: string; description: string } = values;
 
     try {
       const res = await fetch(`${apiUrl}/tickets`, {
@@ -151,14 +155,14 @@ export default function TicketSubmissionForm() {
           />
 
           <Button type='submit'>Submit</Button>
-
-          {successMessage && (
-            <div className='mt-6 font-bold text-blue-800 text-center'>
-              {successMessage}
-            </div>
-          )}
         </form>
       </Form>
+
+      {successMessage && (
+        <div className='mt-4 font-bold text-blue-800 text-center'>
+          {successMessage}
+        </div>
+      )}
     </div>
   );
 }
